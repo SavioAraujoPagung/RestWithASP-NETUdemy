@@ -1,16 +1,30 @@
-GET http://localhost:5000/Calculator/sum/2.3/3.3
+GET http://localhost:5000/api/person
 
 ###
-GET http://localhost:5000/Calculator/subtraction/2.3/1.12
+GET http://localhost:5000/api/person/2
 
 ###
-GET http://localhost:5000/Calculator/multiplication/2.3/4
+POST http://localhost:5000/api/person
+content-type: application/json
+
+{
+  "id": 1,
+  "firstName": "Savio0",
+  "lastName": "Pagung0",
+  "address": "Baixo Guandu - Espírito Santo - BR0",
+  "gender": "Male"
+}
 
 ###
-GET http://localhost:5000/Calculator/division/2.1/2
+PUT http://localhost:5000/api/person
+content-type: application/json
+
+{
+  "firstName": "Savido0",
+  "lastName": "Pagung0",
+  "address": "Baixo Guandu - Espírito Santo - BR0",
+  "gender": "Male"
+}
 
 ###
-GET http://localhost:5000/Calculator/average/1/4
-
-###
-GET http://localhost:5000/Calculator/square-root/9
+DELETE http://localhost:5000/api/person/2
