@@ -8,10 +8,9 @@ POST http://localhost:5000/api/person
 content-type: application/json
 
 {
-  "id": 1,
-  "firstName": "Savio0",
-  "lastName": "Pagung0",
-  "address": "Baixo Guandu - Espírito Santo - BR0",
+  "firstName": "Savio",
+  "lastName": "Pagung",
+  "address": "Baixo Guandu - Espírito Santo - BR",
   "gender": "Male"
 }
 
@@ -20,8 +19,9 @@ PUT http://localhost:5000/api/person
 content-type: application/json
 
 {
-  "firstName": "Savido0",
-  "lastName": "Pagung0",
+  "id": 3,
+  "firstName": "Savio",
+  "lastName": "Araujo Pagung",
   "address": "Baixo Guandu - Espírito Santo - BR0",
   "gender": "Male"
 }

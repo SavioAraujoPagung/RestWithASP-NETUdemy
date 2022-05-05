@@ -1,53 +1,75 @@
 using RestWithASPETUdemy.Model;
+using RestWithASPETUdemy.Model.Context;
 using System.Collections.Generic;
 using System.Threading;
+using System.Linq;
 
 
 namespace RestWithASPETUdemy.Services.Implementations
 {
     class PersonServiceImplementation : IPersonService
     {
-        private volatile int count; 
+        private MySQLContext _context;
 
-        public Person Create (Person person){
-            return person;
+        public PersonServiceImplementation(MySQLContext context)
+        {
+            _context = context;
         }
 
         public Person FindByID (long id){
-            return MockPerson(0);
+            return _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
         }
 
         public List<Person> FindAll(){
-            List<Person> persons = new List<Person>();
-            for (int i = 0; i < 8; i++)
-            {
-                Person person = MockPerson(i);
-                persons.Add(person);
-            }
-            return persons;
+            
+            return _context.Persons.ToList();
         }
 
-        public Person Update (Person person){
+        public Person Create (Person person){
+            try
+            {
+                _context.Add(person);
+                _context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw ex;
+            }
             return person;
         }
 
+        public Person Update (Person newPerson){
+            var toUpdate = this.FindByID(newPerson.Id);
+            if (toUpdate == null) return new Person();
+
+            try
+            {
+                _context.Entry(toUpdate).CurrentValues.SetValues(newPerson);
+                _context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw ex;
+            }
+            return newPerson;
+        }
+
         public void Delete (long id){
+            var toDetele = this.FindByID(id);
+            if (toDetele == null) return;
 
-        }
-
-        private Person MockPerson(int i) {
-            return new Person{
-                Id = IncrementAndGet() + i,
-                FirstName = "Savio" + i,
-                LastName = "Pagung" + i,
-                Address = "Baixo Guandu - Espírito Santo - BR" + i,
-                Gender = "Male"
-            }; 
-        }
-
-        private long IncrementAndGet()
-        {
-            return Interlocked.Increment(ref count);
+            try
+            {
+                _context.Persons.Remove(toDetele);
+                _context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw ex;
+            }
         }
     }
 }
