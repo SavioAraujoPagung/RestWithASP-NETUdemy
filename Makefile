@@ -20,3 +20,7 @@ two:
 three:
 	@echo 'Iniciando projeto: THREE';
 	@cd 03_RestWithASPNETUdemy_Connecting_to_database/RestWithASPNETUdemy && dotnet run RestWithASPNETUdemy.csproj;
+
+forr:
+	@echo 'Iniciando projeto: THREE';
+	@cd 03_RestWithASPNETUdemy_Connecting_to_database/RestWithASPNETUdemy && dotnet run RestWithASPNETUdemy.csproj;
