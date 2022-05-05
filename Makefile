@@ -12,3 +12,11 @@ zero:
 one:
 	@echo 'Iniciando projeto: ONE';
 	@cd 01_RestWithASPETUdemy_calculadora/RestWithASPETUdemy && dotnet run RestWithASPETUdemy.csproj;
+
+two:
+	@echo 'Iniciando projeto: TWO';
+	@cd 02_RestWithASPETUdemy_Other_Verbs/RestWithASPETUdemy && dotnet run RestWithASPETUdemy.csproj;
+
+three:
+	@echo 'Iniciando projeto: THREE';
+	@cd 03_RestWithASPETUdemy_Other_Connecting_to_database/RestWithASPETUdemy && dotnet run RestWithASPETUdemy.csproj;
