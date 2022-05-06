@@ -1,0 +1,30 @@
+GET http://localhost:5000/api/person/v1
+
+###
+GET http://localhost:5000/api/person/v1/2
+
+###
+POST http://localhost:5000/api/person/v1
+content-type: application/json
+
+{
+  "firstName": "Savio",
+  "lastName": "Pagung",
+  "address": "Baixo Guandu - Espírito Santo - BR",
+  "gender": "Male"
+}
+
+###
+PUT http://localhost:5000/api/person/v1/
+content-type: application/json
+
+{
+  "id": 3,
+  "firstName": "Savio",
+  "lastName": "Araujo Pagung",
+  "address": "Baixo Guandu - Espírito Santo - BR0",
+  "gender": "Male"
+}
+
+###
+DELETE http://localhost:5000/api/person/v1/2
